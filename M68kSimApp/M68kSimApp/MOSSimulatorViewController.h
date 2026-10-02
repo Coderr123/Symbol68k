@@ -24,6 +24,7 @@ enum {
 @class MOSSimStackDumpDataSource;
 @class MOSTeletypeViewDelegate;
 @class MOSSimBrkptWindowController;
+@class MOSSymbolTableWindowController;
 @class MOSListingDictionary;
 @class MOSExecutable;
 
@@ -67,6 +68,7 @@ enum {
   
   NSLayoutConstraint *teletypePanelConstraint;
   MOSSimBrkptWindowController *brkptWc;
+  MOSSymbolTableWindowController *symbolTableWc;
 }
 
 - (BOOL)setSimulatedExecutable:(MOSExecutable *)exc simulatorType:(Class)st
@@ -88,6 +90,7 @@ enum {
 - (IBAction)stepOut:(id)sender;
 
 - (IBAction)openBreakpointsWindow:(id)sender;
+- (IBAction)openSymbolTableWindow:(id)sender;
 - (void)replaceBreakpoints:(NSSet *)newbps;
 
 - (IBAction)showSource:(id)sender;

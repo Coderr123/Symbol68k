@@ -115,6 +115,9 @@ NSArray *MOSSyntaxErrorsFromEvents(NSArray *events) {
   [fragaria setShowsLineNumbers:YES];
   
   textView = [fragaria textView];
+  NSSize textInset = [textView textContainerInset];
+  textInset.height += 6.0;
+  [textView setTextContainerInset:textInset];
   [self setUndoManager:[textView undoManager]];
   
   if ([textView respondsToSelector:@selector(setTouchBar:)]) {
@@ -377,7 +380,7 @@ NSArray *MOSSyntaxErrorsFromEvents(NSArray *events) {
   [sp setAllowsOtherFileTypes:YES];
   [sp setCanSelectHiddenExtension:YES];
   [sp beginSheetModalForWindow:docWindow completionHandler:^(NSInteger result) {
-    if (result == NSFileHandlingPanelOKButton) {
+      if (result == NSModalResponseOK) {
       self->assembleForSaveOnly = YES;
       
       [self assembleInBackgroundWithListing:NO completionHandler:^void
@@ -536,8 +539,8 @@ NSArray *MOSSyntaxErrorsFromEvents(NSArray *events) {
   ud = [NSUserDefaults standardUserDefaults];
   
   pi = [super printInfo];
-  [pi setHorizontalPagination:NSFitPagination];
-  [pi setVerticalPagination:NSAutoPagination];
+  [pi setHorizontalPagination:NSPrintingPaginationModeFit];
+  [pi setVerticalPagination:NSPrintingPaginationModeFit];
   [pi setHorizontallyCentered:NO];
   [pi setVerticallyCentered:NO];
   [pi setLeftMargin:(72.0/2.54)*1.5];

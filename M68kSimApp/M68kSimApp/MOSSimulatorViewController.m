@@ -14,6 +14,7 @@
 #import "MOSSimStackDumpDataSource.h"
 #import "MOSTeletypeViewDelegate.h"
 #import "MOSSimBrkptWindowController.h"
+#import "MOSSymbolTableWindowController.h"
 #import "MOSMutableBreakpoint.h"
 #import "MOSColoredView.h"
 
@@ -252,7 +253,7 @@ static void *SimulatorState = &SimulatorState;
       "occurred which caused the simulator to crash. Try restarting and see "
       "what happens.", @"Informative text of simulator death alert")];
   }
-  [alert setAlertStyle:NSCriticalAlertStyle];
+    [alert setAlertStyle:NSAlertStyleCritical];
   [alert addButtonWithTitle:NSLocalizedString(@"Restart", @"Restart (simulator)")];
   [alert addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
   
@@ -285,7 +286,7 @@ static void *SimulatorState = &SimulatorState;
   
   exceptionOccurred = YES;
   alert = [NSAlert alertWithError:err];
-  [alert setAlertStyle:NSCriticalAlertStyle];
+    [alert setAlertStyle:NSAlertStyleCritical];
   [alert addButtonWithTitle:NSLocalizedString(@"Debug", @"Debug (after "
     "segmentation fault)")];
   
@@ -504,6 +505,20 @@ static void *SimulatorState = &SimulatorState;
   [disasmDs showDisassembly];
   [sourcePopup selectItemAtIndex:0];
   showingSource = NO;
+}
+
+
+#pragma mark - Symbol Table
+
+
+- (IBAction)openSymbolTableWindow:(id)sender
+{
+  if (!symbolTableWc)
+    symbolTableWc = [[MOSSymbolTableWindowController alloc] init];
+
+  [symbolTableWc setSymbolTable:[simProxy symbolTable]];
+  [symbolTableWc showWindow:self];
+  [[symbolTableWc window] makeKeyAndOrderFront:self];
 }
 
 

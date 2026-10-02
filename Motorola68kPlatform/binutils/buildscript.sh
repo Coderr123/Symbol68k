@@ -11,6 +11,9 @@ env
 PATH=$(printf %s $PATH | sed -E 's/:\/usr\/local[^:]*(:|$)/\1/g')
 echo $PATH
 
+PATH="/opt/homebrew/opt/texinfo/bin:$PATH"
+export PATH
+
 mkdir -p "$CONFIGURATION_TEMP_DIR"
 mkdir -p "$CONFIGURATION_BUILD_DIR"
 cd "$CONFIGURATION_TEMP_DIR"

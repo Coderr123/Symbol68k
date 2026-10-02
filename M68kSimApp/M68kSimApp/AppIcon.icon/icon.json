@@ -1,0 +1,82 @@
+{
+  "color-space-for-untagged-svg-colors" : "display-p3",
+  "features" : [
+    "refractivity"
+  ],
+  "fill" : {
+    "automatic-gradient" : "display-p3:1.00000,1.00000,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material" : 0.5,
+      "layers" : [
+        {
+          "image-name" : "68k 2.svg",
+          "name" : "68k 2"
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.98486,0.81104,0.47778,1.00000"
+          },
+          "image-name" : "Cover 3.svg",
+          "name" : "Cover 3",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              -0.23050000000000637
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "automatic-gradient" : "display-p3:0.99023,0.70020,0.29468,1.00000"
+          },
+          "image-name" : "Substrate 3.svg",
+          "name" : "Substrate 3"
+        },
+        {
+          "image-name" : "Pins R 3.svg",
+          "name" : "Pins R 3",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              264.99999999999994,
+              0
+            ]
+          }
+        },
+        {
+          "image-name" : "Pins R-1 2.svg",
+          "name" : "Pins R-1 2",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              -265,
+              0
+            ]
+          }
+        }
+      ],
+      "refractivity" : {
+        "depth" : 0.282890625,
+        "enabled" : true,
+        "strength" : -0.640703125
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.4
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.4
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "macOS"
+    ]
+  }
+}

@@ -25,6 +25,7 @@ NSString * const MOSToolbarItemIdentifierFlags = @"MOSToolbarItemIdentifierFlags
 NSString * const MOSToolbarItemIdentifierRunning = @"MOSToolbarItemIdentifierRunning";
 NSString * const MOSToolbarItemIdentifierClock = @"MOSToolbarItemIdentifierClock";
 NSString * const MOSToolbarItemIdentifierReset = @"MOSToolbarItemIdentifierReset";
+NSString * const MOSToolbarItemIdentifierSymbols = @"MOSToolbarItemIdentifierSymbols";
 NSString * const MOSToolbarItemIdentifierBuildAndRun = @"MOSToolbarItemIdentifierBuildAndRun";
 NSString * const MOSToolbarItemIdentifierGoSource = @"MOSToolbarItemIdentifierGoSource";
 NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifierGoSimulator";
@@ -47,7 +48,8 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
     MOSToolbarItemIdentifierFlags,
     MOSToolbarItemIdentifierRunning,
     MOSToolbarItemIdentifierClock,
-    MOSToolbarItemIdentifierReset ];
+    MOSToolbarItemIdentifierReset,
+    MOSToolbarItemIdentifierSymbols ];
   if (!sourceDocument)
     return commonSet;
   return [commonSet arrayByAddingObjectsFromArray:@[
@@ -69,6 +71,7 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
       NSToolbarFlexibleSpaceItemIdentifier,
       MOSToolbarItemIdentifierClock,
       MOSToolbarItemIdentifierRunning,
+      MOSToolbarItemIdentifierSymbols,
       MOSToolbarItemIdentifierReset ];
   return @[
     MOSToolbarItemIdentifierGoSource,
@@ -82,6 +85,7 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
     NSToolbarFlexibleSpaceItemIdentifier,
     MOSToolbarItemIdentifierClock,
     MOSToolbarItemIdentifierRunning,
+    MOSToolbarItemIdentifierSymbols,
     MOSToolbarItemIdentifierReset,
     MOSToolbarItemIdentifierGoSimulator ];
 }
@@ -141,6 +145,7 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
     MOSToolbarItemIdentifierStepOver,
     MOSToolbarItemIdentifierStepOut,
     MOSToolbarItemIdentifierReset,
+    MOSToolbarItemIdentifierSymbols,
     MOSToolbarItemIdentifierGoSource,
     MOSToolbarItemIdentifierGoSimulator,
     MOSToolbarItemIdentifierBuildAndRun ];
@@ -157,7 +162,7 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
     
     if ([buttons containsObject:itemIdentifier]) {
       view = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 100, 32)];
-      [view setBezelStyle:NSTexturedRoundedBezelStyle];
+        [view setBezelStyle:NSBezelStyleToolbar];
       minsize = 0;
       if ([sourceButtons containsObject:itemIdentifier]) {
         [view setTarget:sourceDocument];
@@ -207,6 +212,11 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
           label = NSLocalizedString(@"Restart", @"Toolbar Item");
           action = @selector(restart:);
           minsize = 36;
+        } else if ([itemIdentifier isEqual:MOSToolbarItemIdentifierSymbols]) {
+          image = [NSImage imageNamed:NSImageNameColumnViewTemplate];
+          label = NSLocalizedString(@"Symbols", @"Toolbar Item");
+          action = @selector(openSymbolTableWindow:);
+          minsize = 36;
         }
         [view setTitle:@""];
       }
@@ -214,6 +224,14 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
       [view setAction:action];
       [view setImage:image];
       [view sizeToFit];
+      rect = [view frame];
+      rect.size.width += 12.0;
+      rect.size.height = MAX(rect.size.height, 32.0);
+      if ([itemIdentifier isEqual:MOSToolbarItemIdentifierReset]) {
+        rect.size.width += 8.0;
+        rect.size.height = MAX(rect.size.height, 36.0);
+      }
+      [view setFrame:rect];
       if (minsize > 0) {
         rect = [view frame];
         rect.size.width = MAX(rect.size.width, minsize);
@@ -255,11 +273,20 @@ NSString * const MOSToolbarItemIdentifierGoSimulator= @"MOSToolbarItemIdentifier
       label = NSLocalizedString(@"Running", @"Toolbar Item");
     }
     
+    NSSize viewSize = [view bounds].size;
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:view
+      attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationGreaterThanOrEqual
+      toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0
+      constant:viewSize.width]];
+    [view addConstraint:[NSLayoutConstraint constraintWithItem:view
+      attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationGreaterThanOrEqual
+      toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0
+      constant:viewSize.height]];
+
     [res setView:view];
     [res setLabel:label];
     [res setPaletteLabel:label];
-    [res setMaxSize:[view bounds].size];
-    [res setMinSize:[view bounds].size];
   }
   return res;
 }
