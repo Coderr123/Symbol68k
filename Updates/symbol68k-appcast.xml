@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>Tricky68k Updates</title>
-        <link>https://github.com/shysaur/Tricky68k/raw/master/Updates/tricky68k-appcast.xml</link>
+        <title>Symbol68k Updates</title>
+        <link>https://github.com/Coderr123/Symbol68k/raw/master/Updates/symbol68k-appcast.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         
@@ -16,13 +16,13 @@
                 <li>Other minor bug fixes</li>
               </ul> ]]>
             </description>
-            <pubDate>Mon, 6 October 2026 1:42:00 +0100</pubDate>
-            <enclosure url="https://github.com/shysaur/Tricky68k/releases/download/release_1.4.1/Tricky68k_141.tar.bz2"
+            <pubDate>Mon, 7 October 2026 20:30:00 +0000</pubDate>
+            <enclosure url="https://github.com/Coderr123/Symbol68k/releases/download/1.4.2/Symbol68k-1.4.2.tar.bz2"
               sparkle:version="2028"
               sparkle:shortVersionString="1.4.2"
-              length="3933370"
+              length="4334457"
               type="application/octet-stream"
-              sparkle:dsaSignature="MC0CFGrsSgim/twpg0vHtmcpkAAnP6RhAhUA5Z2duAg3SF1YIPNuC29rLhRFEYw=" />
+              sparkle:dsaSignature="MC0CFQC18tnWW5MwWhxZLv4OnE4AwGoXIgIUcNVPorY4Ebd147xWTfJvV3JT5f0=" />
             <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
         </item>
     </channel>
