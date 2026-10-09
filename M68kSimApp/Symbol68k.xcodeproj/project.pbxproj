@@ -934,9 +934,9 @@
 			productReference = 014F9C9A1E1AC70900E74EBB /* PlatformSupport.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		016CD1341A51A10E00D64892 /* Tricky68k */ = {
+		016CD1341A51A10E00D64892 /* Symbol68k */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 016CD1581A51A10F00D64892 /* Build configuration list for PBXNativeTarget "Tricky68k" */;
+			buildConfigurationList = 016CD1581A51A10F00D64892 /* Build configuration list for PBXNativeTarget "Symbol68k" */;
 			buildPhases = (
 				016CD1311A51A10E00D64892 /* Sources */,
 				016CD1321A51A10E00D64892 /* Frameworks */,
@@ -952,7 +952,7 @@
 				014F9CA01E1AC70900E74EBB /* PBXTargetDependency */,
 				01D9742222CC2D24003C41FA /* PBXTargetDependency */,
 			);
-			name = Tricky68k;
+			name = Symbol68k;
 			productName = M68kSimApp;
 			productReference = 016CD1351A51A10E00D64892 /* Symbol68k.app */;
 			productType = "com.apple.product-type.application";
@@ -965,7 +965,7 @@
 			attributes = {
 				CLASSPREFIX = MOS;
 				LastUpgradeCheck = 1250;
-				ORGANIZATIONNAME = "Daniele Cattaneo";
+				ORGANIZATIONNAME = Symbolic;
 				TargetAttributes = {
 					014F9C991E1AC70900E74EBB = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -978,7 +978,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 016CD1301A51A10E00D64892 /* Build configuration list for PBXProject "Tricky68k" */;
+			buildConfigurationList = 016CD1301A51A10E00D64892 /* Build configuration list for PBXProject "Symbol68k" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1001,7 +1001,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				016CD1341A51A10E00D64892 /* Tricky68k */,
+				016CD1341A51A10E00D64892 /* Symbol68k */,
 				014F9C991E1AC70900E74EBB /* PlatformSupport */,
 			);
 		};
@@ -1520,8 +1520,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = Yes;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -1570,7 +1572,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = Yes;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -1626,7 +1630,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		016CD1301A51A10E00D64892 /* Build configuration list for PBXProject "Tricky68k" */ = {
+		016CD1301A51A10E00D64892 /* Build configuration list for PBXProject "Symbol68k" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				016CD1561A51A10F00D64892 /* Debug */,
@@ -1635,7 +1639,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		016CD1581A51A10F00D64892 /* Build configuration list for PBXNativeTarget "Tricky68k" */ = {
+		016CD1581A51A10F00D64892 /* Build configuration list for PBXNativeTarget "Symbol68k" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				016CD1591A51A10F00D64892 /* Debug */,

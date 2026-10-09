@@ -35,6 +35,7 @@
 				"$(DERIVED_FILE_DIR)/m68kops.c",
 				"$(DERIVED_FILE_DIR)/m68kops.h",
 			);
+			runOncePerArchitecture = 0;
 			script = "\"$BUILT_PRODUCTS_DIR/m68kmake\" \"$DERIVED_FILE_DIR\" \"$INPUT_FILE_PATH\"\n";
 		};
 /* End PBXBuildRule section */
@@ -379,6 +380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -408,6 +410,7 @@
 				EXECUTABLE_PREFIX = lib;
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DM68K_COMPILE_FOR_MAME=OPT_OFF",
 					"-include\"$PROJECT_DIR/m68kconf.h\"",

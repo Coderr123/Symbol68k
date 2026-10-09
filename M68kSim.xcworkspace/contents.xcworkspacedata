@@ -5,7 +5,7 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:M68kSimApp/Tricky68k.xcodeproj">
+      location = "group:M68kSimApp/Symbol68k.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Motorola68kPlatform/Motorola68kPlatform.xcodeproj">
